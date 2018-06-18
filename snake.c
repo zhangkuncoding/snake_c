@@ -103,8 +103,6 @@ void init_game(){
     food.m_y = rand() % (LINES-2) + 2;
 
     create_dlist();    
-	
-	//set_ticker(20);
 }
 
 /*
@@ -198,6 +196,7 @@ void show_snake(){
         return;  
     }  
 
+	// move forward
 	insert_node_after_head(head->next->m_x+dir.m_x, 
 			               head->next->m_y+dir.m_y);  
     // if catch food  
@@ -221,7 +220,8 @@ void show_snake(){
         food.m_y = rand() % (LINES - 2) + 2;  
     }  
 	
-    if(!lenChange)  {  
+    if(!lenChange)  {
+		// pverwrite the * the last time print
         mvprintw(tail->prev->m_y, tail->prev->m_x, " ");  
         
 		delete_node_bofore_end();  
